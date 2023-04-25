@@ -145,7 +145,7 @@ class Contact{
         for(let i =0;i<ContactArray.length;i++){
           if(ContactArray[i]._firstName==name){
             console.log("Contact found!!!")
-            ContactArray.splice(i,1); /// 1 is use to specify how much element you want to remove if 1 then 1 element will remove 
+            ContactArray.splice(i,1); /// 1 is use to specify how much element you want to remove if 1 then 1 element will be  removed 
             console.log("Contact delete !!!")
           }
         }
