@@ -131,6 +131,8 @@ class Contact{
     ContactArray.push(contact);
     let contact1 = new Contact('Lohith', 'Kumar', 'KPHB', 'Hyderabad', 'Telangana', '500090', '919000065446', 'lohithkumar@gmail.com');
     ContactArray.push(contact1);
+    let contact2 = new Contact('Divya', 'Kumari', 'White Field', 'Bangalore', 'karnataka', '456328', '919986737475', 'divyakumari@gmail.com');
+    ContactArray.push(contact2);
     // console.log(contact.toString());
     // console.log(contact1.toString());
     ContactArray.Edit=function(name,newname){
@@ -154,3 +156,10 @@ class Contact{
       
       ContactArray.Edit("Anuroop","Anurooop");
       ContactArray.delete("Anurooop");
+      ContactArray.FindNumberOfcontact=function(){
+        const count = ContactArray.reduce((count, contacts) => {
+            return count+= 1;
+          }, 0);
+          console.log("Number of contacts: ${count}");
+          ContactArray.FindNumberOfcontact;
+      }
