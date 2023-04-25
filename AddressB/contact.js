@@ -126,40 +126,82 @@ class Contact{
         return (`First Name: ${this.firstName} \nLast Name: ${this.lastName}\nAddress: ${this.address}\nCity : ${this.city}\nState : ${this.state}\nZip code : ${this.zip}\nPhone Number : ${this.phoneNumber}\nEmail ID: ${this.email}`)
       }
     }
+    class AddressBook{
+        constructor(ContactArray){
+                this.ContactArray=ContactArray;
+        }
+          display(){
+            console.log(this.ContactArray.toString())
+          }
+         addContact(Contact){
+            let flag=true
+            for(let i=0;i<ContactArray.length;i++){
+              if(Contact.firstName== this.ContactArray[i].firstName){
+                flag=flag
+              }
+            }
+            if(flag){
+              this.ContactArray.push(Contact);
+            }   
+        }
+        Edit(name,newname){
+            for(let i=0;i<ContactArray.length;i++){
+              if(ContactArray[i]._firstName==name){
+                ContactArray[i].firstName=newname;
+              }
+            }
+            console.log(ContactArray.toString());
+          }
+          
+          deleteContact(name){
+              for(let i =0;i<ContactArray.length;i++){
+                if(ContactArray[i]._firstName==name){
+                  console.log("Contact found!!!")
+                  ContactArray.splice(i,1); 
+                  // delete ContactArray[i];   this is another method 
+                  /// 1 is use to specify how much element you want to remove if 1 then 1 element will remove 
+                  console.log("Contact delete !!!")
+                }
+              }
+              console.log(ContactArray.toString());
+          }
+          
+          numberofCOntact(){
+            const count = ContactArray.reduce((count, contacts) => {
+              return count+= 1;
+            }, 0);
+            console.log(`Number of contacts: ${count}`);
+          }
+            searchBycity(city){
+              let cityList=[]
+              cityList =this.ContactArray.filter(contact => contact.city== city)
+              console.log("Printing matched City")
+              console.log("**********************************")
+              console.log(cityList.toString())
+            }
+            searchByState(state){
+              let stateList=[];
+              stateList=this.ContactArray.filter(contact => contact.state==state)
+              console.log("Printing matched State")
+              console.log("**********************************")
+              console.log(stateList.toString())
+            }
+          }
+
     let ContactArray=[];
+    let newAddressBook = new AddressBook(ContactArray);
     let contact = new Contact('Anuroop', 'Kannaiah', 'Gandhi chowk', 'Khammam', 'Telangana', '507003', '919951853105', 'anuroop.kannaiah@gmail.com');
-    ContactArray.push(contact);
+    //ContactArray.push(contact);
+    newAddressBook.addContact(contact);
     let contact1 = new Contact('Lohith', 'Kumar', 'KPHB', 'Hyderabad', 'Telangana', '500090', '919000065446', 'lohithkumar@gmail.com');
-    ContactArray.push(contact1);
-    let contact2 = new Contact('Divya', 'Kumari', 'White Field', 'Bangalore', 'karnataka', '456328', '919986737475', 'divyakumari@gmail.com');
-    ContactArray.push(contact2);
-    // console.log(contact.toString());
-    // console.log(contact1.toString());
-    ContactArray.Edit=function(name,newname){
-        for(let i=0;i<ContactArray.length;i++){
-          if(ContactArray[i]._firstName==name){
-            ContactArray[i].firstName=newname;
-          }
-        }
-        console.log(ContactArray.toString());
-      }
-      ContactArray.delete=function(name){
-        for(let i =0;i<ContactArray.length;i++){
-          if(ContactArray[i]._firstName==name){
-            console.log("Contact found!!!")
-            ContactArray.splice(i,1); /// 1 is use to specify how much element you want to remove if 1 then 1 element will be  removed 
-            console.log("Contact delete !!!")
-          }
-        }
-        console.log(ContactArray.toString());
-    }
-      
-      ContactArray.Edit("Anuroop","Anurooop");
-      ContactArray.delete("Anurooop");
-      ContactArray.FindNumberOfcontact=function(){
-        const count = ContactArray.reduce((count, contacts) => {
-            return count+= 1;
-          }, 0);
-          console.log("Number of contacts: ${count}");
-          ContactArray.FindNumberOfcontact;
-      }
+    //ContactArray.push(contact1);
+    newAddressBook.addContact(contact1);
+    let contact2 = new contact2('Divya', 'Kumari', 'White Field', 'Bangalore', 'karnataka', '456328', '919986737475', 'divyakumari@gmail.com');
+    //ContactArray.push(contact2);
+    newAddressBook.addContact(contact2);
+    newAddressBook.display();  
+    newAddressBook.Edit("Anuroop","Anurooop");
+    newAddressBook.deleteContact("Anurooop");
+    newAddressBook.numberofCOntact();
+    newAddressBook.searchBycity("Khammam");
+    newAddressBook.searchByState("Telangana");
