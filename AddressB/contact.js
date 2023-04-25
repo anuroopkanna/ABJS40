@@ -131,8 +131,8 @@ class Contact{
     ContactArray.push(contact);
     let contact1 = new Contact('Lohith', 'Kumar', 'KPHB', 'Hyderabad', 'Telangana', '500090', '919000065446', 'lohithkumar@gmail.com');
     ContactArray.push(contact1);
-    console.log(contact.toString());
-    console.log(contact1.toString());
+    // console.log(contact.toString());
+    // console.log(contact1.toString());
     ContactArray.Edit=function(name,newname){
         for(let i=0;i<ContactArray.length;i++){
           if(ContactArray[i]._firstName==name){
@@ -141,5 +141,16 @@ class Contact{
         }
         console.log(ContactArray.toString());
       }
+      ContactArray.delete=function(name){
+        for(let i =0;i<ContactArray.length;i++){
+          if(ContactArray[i]._firstName==name){
+            console.log("Contact found!!!")
+            ContactArray.splice(i,1); /// 1 is use to specify how much element you want to remove if 1 then 1 element will remove 
+            console.log("Contact delete !!!")
+          }
+        }
+        console.log(ContactArray.toString());
+    }
       
       ContactArray.Edit("Anuroop","Anurooop");
+      ContactArray.delete("Anurooop");
