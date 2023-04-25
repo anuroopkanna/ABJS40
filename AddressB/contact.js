@@ -126,5 +126,20 @@ class Contact{
         return (`First Name: ${this.firstName} \nLast Name: ${this.lastName}\nAddress: ${this.address}\nCity : ${this.city}\nState : ${this.state}\nZip code : ${this.zip}\nPhone Number : ${this.phoneNumber}\nEmail ID: ${this.email}`)
       }
     }
-      let myContact = new Contact('Anuroop', 'Kannaiah', 'Gandhi chowk', 'Khammam', 'Telangana', '507003', '919951853105', 'anuroop.kannaiah@gmail.com');
-console.log(myContact.toString());
+    let ContactArray=[];
+    let contact = new Contact('Anuroop', 'Kannaiah', 'Gandhi chowk', 'Khammam', 'Telangana', '507003', '919951853105', 'anuroop.kannaiah@gmail.com');
+    ContactArray.push(contact);
+    let contact1 = new Contact('Lohith', 'Kumar', 'KPHB', 'Hyderabad', 'Telangana', '500090', '919000065446', 'lohithkumar@gmail.com');
+    ContactArray.push(contact1);
+    console.log(contact.toString());
+    console.log(contact1.toString());
+    ContactArray.Edit=function(name,newname){
+        for(let i=0;i<ContactArray.length;i++){
+          if(ContactArray[i]._firstName==name){
+            ContactArray[i].firstName=newname;
+          }
+        }
+        console.log(ContactArray.toString());
+      }
+      
+      ContactArray.Edit("Anuroop","Anurooop");
