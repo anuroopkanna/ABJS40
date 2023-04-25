@@ -126,6 +126,7 @@ class Contact{
         return (`First Name: ${this.firstName} \nLast Name: ${this.lastName}\nAddress: ${this.address}\nCity : ${this.city}\nState : ${this.state}\nZip code : ${this.zip}\nPhone Number : ${this.phoneNumber}\nEmail ID: ${this.email}`)
       }
     }
+
     class AddressBook{
         constructor(ContactArray){
                 this.ContactArray=ContactArray;
@@ -159,7 +160,7 @@ class Contact{
                   console.log("Contact found!!!")
                   ContactArray.splice(i,1); 
                   // delete ContactArray[i];   this is another method 
-                  /// 1 is use to specify how much element you want to remove if 1 then 1 element will remove 
+                  /// 1 is use to specify how much element you want to remove if 1 then 1 element will be removed 
                   console.log("Contact delete !!!")
                 }
               }
@@ -172,6 +173,7 @@ class Contact{
             }, 0);
             console.log(`Number of contacts: ${count}`);
           }
+
             searchBycity(city){
               let cityList=[]
               cityList =this.ContactArray.filter(contact => contact.city== city)
@@ -179,6 +181,7 @@ class Contact{
               console.log("**********************************")
               console.log(cityList.toString())
             }
+        
             searchByState(state){
               let stateList=[];
               stateList=this.ContactArray.filter(contact => contact.state==state)
