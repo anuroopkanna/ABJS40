@@ -189,6 +189,13 @@ class Contact{
               console.log("**********************************")
               console.log(stateList.toString())
             }
+            CountBycity(cityname){
+                let cityCount=ContactArray.filter(contact=> contact.city==cityname).reduce((cityCount,contact) => {
+                  return cityCount+=1;
+                },0);
+                console.log("Number of Contacts in the Address Book whose city is " +cityname +"is :- "+cityCount)
+              }
+            
           }
 
     let ContactArray=[];
@@ -209,3 +216,4 @@ class Contact{
     newAddressBook.searchBycity("Khammam");
     //search by state
     newAddressBook.searchByState("Telangana");
+    newAddressBook.CountBycity("Hyderabad");
