@@ -1,4 +1,13 @@
 class Contact{
+    firstNameRegex = RegExp('^[A-Z]{1}[a-z]{3,}$');
+    lastNameRegex = RegExp('^[A-Z]{1}[a-z]{3,}$');
+    addressRegex = RegExp('^[A-Z][a-z]{4,}$');
+    cityRegex = RegExp('^[A-Z][a-z]{3,}$');
+    stateRegex = RegExp('^[A-Z][a-z]{4,}$');
+    zipRegex = RegExp('^[0-9]{6}$');
+    phonenumberRegex = RegExp('^[0-9]{2}[0-9]{10}$');
+    emailRegex = RegExp('^[0-9a-zA-Z]+([+.-]([a-z0-9A-Z]+))*[@][a-zA-Z0-9]+[.][a-z]{2,4}[,]?([.][a-z]{2,4})?$');
+    
     constructor(firstName,lastName,address,city,state,zip,phoneNumber,email){
       this.firstName=firstName;
         this.lastName=lastName;
