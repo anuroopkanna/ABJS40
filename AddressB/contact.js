@@ -209,7 +209,51 @@ class Contact{
                 console.log("Printing Sorted list")
                 console.log(sortedList.toString())
               }
+
+              sortByzip(){
+                let sortedList=[]
+                sortedList=ContactArray.sort((a,b)=>{
+                  if(a.zip<b.zip){
+                    return -1;
+                  }
+                  if(a.zip>b.zip){
+                    return 1;
+                  }
+                  return 0;
+                })
+                console.log("Printing sort by zip")
+                console.log(sortedList.toString())
+              }  
             
+              sortBycity(){
+                let sortedList=[];
+                sortedList = ContactArray.sort((a,b)=>{
+                  if(a.city<b.city)
+                  {
+                    return -1;
+                  }
+                  if(a.city>b.city){
+                    return 1;
+                  }
+                  return 0;
+                })
+                console.log("Printing SortbyCity list")
+                console.log(sortedList.toString())
+              }
+              sortBystate(){
+                let sortedList=[]
+                sortedList=ContactArray.sort((a,b)=>{
+                  if(a.state<b.state){
+                    return -1;
+                  }
+                  if(a.state>b.state){
+                    return 1;
+                  }
+                  return 0;
+                })
+                console.log("Printing list sortbyState")
+                console.log(sortedList.toString())
+              }
           }
 
     let ContactArray=[];
@@ -232,3 +276,6 @@ class Contact{
     newAddressBook.searchByState("Telangana");
     newAddressBook.CountBycity("Hyderabad");
     newAddressBook.SortbyName();
+    newAddressBook.sortBycity();
+    newAddressBook.sortBystate();
+    newAddressBook.sortByzip();
