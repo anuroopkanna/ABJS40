@@ -195,6 +195,20 @@ class Contact{
                 },0);
                 console.log("Number of Contacts in the Address Book whose city is " +cityname +"is :- "+cityCount)
               }
+              SortbyName(){
+                let sortedList=[];
+                sortedList=ContactArray.sort((a,b)=>{
+                    if(a.firstName<b.firstName){
+                      return -1;
+                    }
+                    if(a.firstName>b.firstName){
+                      return 1;
+                    }
+                    return 0;
+                });
+                console.log("Printing Sorted list")
+                console.log(sortedList.toString())
+              }
             
           }
 
@@ -217,3 +231,4 @@ class Contact{
     //search by state
     newAddressBook.searchByState("Telangana");
     newAddressBook.CountBycity("Hyderabad");
+    newAddressBook.SortbyName();
